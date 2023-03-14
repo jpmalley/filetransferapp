@@ -1,0 +1,38 @@
+// Theme colors
+$white: #ffffff;
+
+$theme-colors: (
+    "light":      #e0e2e3,
+    "dark":       #020200,
+    "primary":    #931c1b,
+    "secondary":  #e0250d,
+    "info":       #f45125,
+    "success":    #599e08,
+    "warning":    #ffbd60,
+    "danger":     #ee0364,
+);
+
+// Grid columns
+$grid-gutter-width: 20px;
+
+// Border radius
+// $btn-border-radius:           50rem;
+// $btn-border-radius-lg:        50rem;
+// $btn-border-radius-sm:        50rem;
+
+// $input-border-radius:         50rem;
+// $input-border-radius-lg:      50rem;
+// $input-border-radius-sm:      50rem;
+
+// Typography
+// $font-family-sans-serif:      "Assistant", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// $headings-font-family:        "Playfair Display";
+// $headings-font-weight:        400;
+// $headings-line-height:        1.2;
+// $headings-color:              $green;
+
+// $btn-font-family:             "Montserrat";
+
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss"
