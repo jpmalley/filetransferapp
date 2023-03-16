@@ -1,0 +1,20 @@
+{% load  widget_tweaks %}
+
+<form action="/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-group input-group-lg">
+
+        {{ upload_form.file.errors }}
+        {{ upload_form.file|add_class:"form-control form-control-lg w-50" }}
+        <label class="sr-only" for="{{ upload_form.file.id_for_label }}">First name</label>
+
+        {{ upload_form.expiration.errors }}
+        {{ upload_form.expiration|add_class:"form-select" }}
+        <label class="sr-only" for="{{ upload_form.expiration.id_for_label }}">Last name</label>
+
+        <button class="btn btn-secondary" value="submit" type="submit">Upload</button>
+        
+    </div>
+
+    <div class="text-center">{{ form.errors }} </div>
+</form>

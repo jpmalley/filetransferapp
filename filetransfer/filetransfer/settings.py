@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = Path(__file__).resolve().parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home',
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -56,8 +59,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            str(BASE_DIR / 'templates'),
-            str(BASE_DIR / 'staticfiles'),
+            str(BASE_DIR / 'filetransfer/templates'),
+            str(BASE_DIR / 'filetransfer/staticfiles'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,7 +131,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(PROJECT_DIR, 'static'),
 ]
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
