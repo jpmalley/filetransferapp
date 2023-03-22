@@ -1,6 +1,6 @@
 {% load  widget_tweaks %}
 
-<form action="/" method="POST" enctype="multipart/form-data">
+<form id="uploadForm">
     {% csrf_token %}
     <div class="input-group input-group-lg">
 
@@ -12,7 +12,7 @@
         {{ upload_form.expiration|add_class:"form-select" }}
         <label class="sr-only" for="{{ upload_form.expiration.id_for_label }}">Last name</label>
 
-        <button class="btn btn-secondary" value="submit" type="submit">Upload</button>
+        <button id="uploadButton" class="btn btn-secondary" type="button">Upload</button>
         
     </div>
 

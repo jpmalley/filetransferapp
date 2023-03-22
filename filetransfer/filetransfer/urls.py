@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from home.views import home
+from home.views import home, presignUpload, presignDownload, success
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
-    path('<path:resource>', home),
+    path('success/', success),
+    path('ajax/presign_upload/', presignUpload, name="presign_upload"),
+    path('ajax/presign_download/', presignDownload, name="presign_download")
 ]
