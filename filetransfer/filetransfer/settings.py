@@ -91,9 +91,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'django-images',
-            'USER': 'django-images',
-            'PASSWORD': 'complexpassword123',
+            'NAME': 'filetransferapp',
+            'USER': 'jm',
+            'PASSWORD': 'password',
             'HOST': 'localhost',
             'PORT': '5432',
         }
