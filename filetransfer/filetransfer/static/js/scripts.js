@@ -18,7 +18,7 @@ $(document).ready(function () {
 function copyToClipboard() {
     var copyText = $('#downloadUrl').val();
     console.log(copyText);
-    navigator.clipboard.writeText(copyText);
+    // navigator.clipboard.writeText(copyText);
 };
 
 
