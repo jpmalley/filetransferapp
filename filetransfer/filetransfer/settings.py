@@ -19,7 +19,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'filetransfer-prod.us-west-1.elasticbeanstalk.com'
+    'filetransfer-prod.us-west-1.elasticbeanstalk.com',
+    'filetransfer.johnpmalley.com',
 ]
 
 
