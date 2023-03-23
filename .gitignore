@@ -5,6 +5,7 @@
 /static/
 /media/
 .env
+setenv
 .env.tmp
 *.sqlite3
 /node_modules/
