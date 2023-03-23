@@ -11,10 +11,15 @@
 <section class="main">
     <div class="container">
         <div class="d-flex justify-content-center align-items-center h-100">
-            <div>
-                <h3 class="text-center mb-4">Upload your file</h3>
+            <div id="uploadFormContainer" class="d-none">
+                <h2 id="uploadHeading" class="text-center mb-4">Upload your file</h2>
                 {% upload_form %}
-                <div class="alert alert-secondary text-center mt-5">
+                <div id="progressBar" class="w-100 d-none">
+                    <div class="progress" role="progressbar">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"><strong>Uploading...</strong></div>
+                    </div>
+                </div>
+                <div id="description" class="alert alert-secondary text-center mt-5">
                     Uploads a file securely to Amazon S3 and generates a presigned URL with expiration.
                 </div>
             </div>
@@ -28,6 +33,7 @@
 <script>
     var presignUploadUrl = "{% url 'presign_upload' %}"
     var presignDownloadUrl = "{% url 'presign_download' %}"
-    var hostUrl = "{{ request.get_host }}";
 </script>
+
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 {% endblock extra_js %}

@@ -23,6 +23,24 @@ section.main > .container {
     height: calc(100vh - 112px);
 }
 
+.progress {
+    height: 3rem;
+}
+
+.progress strong {
+    font-size: 1.2rem;
+}
+
+
+/* ---------------------------------------------------
+    FOOTER STYLES
+----------------------------------------------------- */
+
+#copyButton {
+    min-width: 5.2rem;
+    font-weight: bold;
+}
+
 
 /* ---------------------------------------------------
     FOOTER STYLES

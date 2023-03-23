@@ -2,19 +2,12 @@
 
 <form id="uploadForm">
     {% csrf_token %}
-    <div class="input-group input-group-lg">
-
-        {{ upload_form.file.errors }}
+    <label class="sr-only" for="{{ upload_form.file.id_for_label }}">First name</label>
+    <label class="sr-only" for="{{ upload_form.expiration.id_for_label }}">Last name</label>
+    <div id="uploadInputs" class="input-group input-group-lg">
         {{ upload_form.file|add_class:"form-control form-control-lg w-50" }}
-        <label class="sr-only" for="{{ upload_form.file.id_for_label }}">First name</label>
-
-        {{ upload_form.expiration.errors }}
         {{ upload_form.expiration|add_class:"form-select" }}
-        <label class="sr-only" for="{{ upload_form.expiration.id_for_label }}">Last name</label>
-
-        <button id="uploadButton" class="btn btn-secondary" type="button">Upload</button>
-        
+        <button id="uploadButton" class="btn btn-secondary" type="button" disabled="disabled">Upload</button>
     </div>
-
     <div class="text-center">{{ form.errors }} </div>
 </form>
