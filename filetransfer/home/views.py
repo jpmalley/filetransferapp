@@ -5,7 +5,7 @@ from .models import File
 from .forms import UploadForm
 from .services import FileDirectUploadService
 
-import urllib.parse
+# import urllib.parse
 
 
 def home(request):
@@ -18,9 +18,9 @@ def home(request):
 
 def success(request):
     encoded_url = request.GET.get("download_url")
-    download_url = urllib.parse.unquote(encoded_url)
+    # download_url = urllib.parse.unquote(encoded_url)
     context = {}
-    context["download_url"] = download_url
+    context["download_url"] = encoded_url
     
     return render(request, "home/success.html", context)
 
@@ -28,8 +28,9 @@ def success(request):
 def presignUpload(request):
     file_name = request.GET.get("file_name")
     file_type = request.GET.get("file_type")
+    expires_in = request.GET.get("expires_in")
     service = FileDirectUploadService
-    presigned_data = service.start(service, file_name=file_name, file_type=file_type)
+    presigned_data = service.start(service, file_name=file_name, file_type=file_type, expires_in=expires_in)
     response = presigned_data
 
     return JsonResponse(response)

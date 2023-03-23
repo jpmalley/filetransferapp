@@ -11,7 +11,7 @@ import mimetypes
 
 class FileDirectUploadService:
     @transaction.atomic
-    def start(self, file_name, file_type, *args, **kwargs):
+    def start(self, file_name, file_type, expires_in, *args, **kwargs):
         file = File(
             original_file_name=file_name,
             file_name=file_generate_name(file_name),
@@ -32,7 +32,9 @@ class FileDirectUploadService:
         presigned_data = {}
 
         presigned_data = s3_generate_presigned_post(
-            file_path=upload_path, file_type=file.file_type
+            file_path = upload_path, 
+            file_type = file.file_type,
+            expires_in = expires_in
         )
 
         return {"id": file.id, **presigned_data}
@@ -47,15 +49,6 @@ class FileDirectUploadService:
         return {"url": presigned_url}
     
 class FileStandardUploadService:
-    """
-    This also serves as an example of a service class,
-    which encapsulates 2 different behaviors (create & update) under a namespace.
-
-    Meaning, we use the class here for:
-
-    1. The namespace
-    2. The ability to reuse `_infer_file_name_and_type` (which can also be an util)
-    """
     def __init__(self, file_obj):
         self.file_obj = file_obj
 

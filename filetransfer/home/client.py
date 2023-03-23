@@ -1,6 +1,9 @@
 import boto3
 from botocore.exceptions import ClientError
 import filetransfer.settings as settings
+from django.utils import timezone
+
+from datetime import timedelta
 
 
 def s3_get_client():
@@ -12,24 +15,30 @@ def s3_get_client():
     )
 
 
-def s3_generate_presigned_post(file_path: str, file_type: str):
+def s3_generate_presigned_post(file_path: str, file_type: str, expires_in):
     s3_client = s3_get_client()
 
     acl = "private"
-    expires_in = 30
+    tags = f"<Tagging><TagSet><Tag><Key>Expiration</Key><Value>{expires_in}</Value></Tag></TagSet></Tagging>"
+    post_expires_in = 10
+    expire_date = str(timezone.now() + timedelta(seconds=int(expires_in)))
 
     presigned_data = s3_client.generate_presigned_post(
         settings.AWS_BUCKET_NAME,
         file_path,
         Fields={
             "acl": acl,
-            "Content-Type": file_type
+            "Content-Type": file_type,
+            "Tagging": tags,
+            "Expires": expire_date,
         },
         Conditions=[
             {"acl": acl},
-            {"Content-Type": file_type}
+            {"Content-Type": file_type},
+            {"Tagging": tags},
+            {"Expires": expire_date}
         ],
-        ExpiresIn=expires_in,
+        ExpiresIn = post_expires_in,
     )
 
     return presigned_data

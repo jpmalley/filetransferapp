@@ -19,8 +19,13 @@
                         <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"><strong>Uploading...</strong></div>
                     </div>
                 </div>
-                <div id="description" class="alert alert-secondary text-center mt-5">
-                    Uploads a file securely to Amazon S3 and generates a presigned URL with expiration.
+                <div id="description" class="alert alert-secondary text-left mt-5">
+                    <p>This simple Django app uploads a file securely to Amazon S3 and generates an easily sharable presigned URL with user specified expiration. Upon clicking upload, an AJAX request is sent to the server to generate presigned post URL with specific conditions to the file being uploaded. The request returns a post URL and the client's browser then handles the upload directly to S3 via JavaScript, avoiding additional server-side load. After a successful upload, the server generates a presigned download URL that expires at the specified time. Object lifecycles in the S3 bucket are managed to ensure objects are deleted permanently within 24 hours of link expiration. HTTP/1.1 Caching is also managed to ensure expiration coincides with link expiration.</p>
+                    <p><strong>Languages used:</strong> <em>Python, HTML, Sass, CSS, JavaScript, SQL</em></p>
+                    <p><strong>Frameworks used:</strong> <em>Django, Bootstrap, JQuery, GSAP, boto3, PostrgreSQL</em></p>
+                    <p><strong>Infrastructure used:</strong> AWS ElasticBeanstalk, EC2, RDS, S3, ELB</p>
+                    <p><strong>Completed:</strong> March 2023</p>
+                    <p class="mb-0">View the <a href="https://github.com/jpmalley/filetransferapp">source code on GitHub</a>.</p>
                 </div>
             </div>
         </div>
